@@ -1,6 +1,6 @@
 import React from 'react';
 import branch from 'recompose/branch';
-import Button from './Button';
+import Button from './button/Button';
 
 export default branch(
   ({ isLoading }) => isLoading,

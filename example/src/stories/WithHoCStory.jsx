@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Button from '../components/Button';
+import Button from '../components/button/Button';
 import Text from '../components/Text';
 import withHoC from '../hoc/withHoC';
 

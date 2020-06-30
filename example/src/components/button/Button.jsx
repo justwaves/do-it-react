@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles, { css } from '../styles/withStyles';
+import withStyles, { css } from '../../styles/withStyles';
 
 const Button = ({
   children,

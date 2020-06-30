@@ -1,6 +1,6 @@
 import React from 'react';
 import withState from 'recompose/withState';
-import Button from '../components/Button';
+import Button from '../components/button/Button';
 
 export const withCountState = withState('count', 'setCount', 0);
 
