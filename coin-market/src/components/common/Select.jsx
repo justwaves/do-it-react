@@ -16,26 +16,34 @@ class Select extends PureComponent {
       focused: false,
     };
   }
-  handleFocus() {
-    this.setState({ focused: true });
+
+  componentDidMount() {
+    const { autoFocus } = this.props;
+
+    if (autoFocus) {
+      this.ref.focus();
+    }
   }
-  handleBlur() {
-    this.setState({ focused: false });
+
+  setRef(ref) {
+    this.ref = ref;
   }
+
   handleChange(e) {
     const { name, onChange } = this.props;
     if (onChange) {
       onChange(name, e.target.value);
     }
   }
-  componentDidMount() {
-    if (this.props.autoFocus) {
-      this.ref.focus();
-    }
+
+  handleBlur() {
+    this.setState({ focused: false });
   }
-  setRef(ref) {
-    this.ref = ref;
+
+  handleFocus() {
+    this.setState({ focused: true });
   }
+
   render() {
     const {
       children,
@@ -112,7 +120,7 @@ Select.defaultProps = {
   autoFocus: false,
 };
 
-export default withStyles(({ depth, unit, color, size, lineHeight }) => ({
+export default withStyles(({ unit, color, size, lineHeight }) => ({
   wrapper: {
     border: 0,
     padding: 0,
