@@ -1,27 +1,20 @@
 import React, { PureComponent } from 'react';
-import Api from 'Api';
 
 import Heading from 'components/common/Heading';
 import Card from 'components/common/Card';
 
-import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
-
+import TransactionSearchFilterContainer from 'containers/main/TransactionSearchFilterContainer';
 import TransactionTable from './TransactionTable';
 // import TransactionPaginationContainer from '../../containers/main/TransactionPaginationContainer';
 
 class TransactionList extends PureComponent {
   componentDidMount() {
-    const { setTransactionList } = this.props;
-    Api.get('/transactions').then(({ data }) => setTransactionList(data));
-
-    /*
-    10-2 참조 코드
-    this.props.requestTransactionList();
-    */
+    const { requestTransactionList } = this.props;
+    requestTransactionList();
   }
 
   render() {
-    const { transactions } = this.props;
+    const { transactions, loading } = this.props;
     return (
       <div>
         <Heading level={3}>거래 현황</Heading>
@@ -29,7 +22,7 @@ class TransactionList extends PureComponent {
           <TransactionSearchFilterContainer />
         </Card>
         <Card>
-          <TransactionTable transactions={transactions} />
+          <TransactionTable transactions={transactions} isLoading={loading} />
         </Card>
         {/* <TransactionPagination /> */}
       </div>
@@ -39,8 +32,7 @@ class TransactionList extends PureComponent {
 
 TransactionList.defaultProps = {
   transactions: [],
-  // requestTransactionList: () => {},
-  setTransactionList: () => {},
+  requestTransactionList: () => {},
 };
 
 export default TransactionList;

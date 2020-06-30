@@ -1,7 +1,7 @@
 import createProvider from 'components/modal/create';
-import { TRADE_COIN_MODAL, REGISTER_USER_MODAL } from 'constants/modals';
-import TradeCoinPage from 'components/main/TradeCoinPage01';
-// import TradeCoinPage from 'containers/main/TradeCoinPageContainer';
+import { TRADE_COIN_MODAL } from 'constants/modals';
+// import { TRADE_COIN_MODAL, REGISTER_USER_MODAL } from 'constants/modals';
+import TradeCoinPage from 'containers/main/TradeCoinPageContainer';
 // import RegisterPage from 'containers/signup/RegisterPageContainer';
 
 export default createProvider({

@@ -4,6 +4,7 @@ import AppLayout from 'components/layouts/AppLayout';
 import MainPage from 'components/main/MainPage';
 import configureStore from 'redux/configureStore';
 import ModalProvider from 'ModalProvider';
+import NotificationContainer from 'containers/NotificationContainer';
 
 const App = () => {
   const store = configureStore();
@@ -13,6 +14,7 @@ const App = () => {
       <ModalProvider>
         <AppLayout>
           <MainPage />
+          <NotificationContainer />
         </AppLayout>
       </ModalProvider>
     </Provider>

@@ -12,8 +12,6 @@ import Input from 'components/common/Input';
 import Form from 'components/common/Form';
 import Select, { Option } from 'components/common/Select';
 
-import Api from 'Api';
-
 class TransactionSearchFilter extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,18 +19,17 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   handleSubmit(params) {
-    const { setTransactionList } = this.props;
+    const { requestTransactionList } = this.props;
 
-    Api.get('/transactions', { params }).then(({ data }) =>
-      setTransactionList(data),
-    );
+    const cleanedParams = Object.entries(params)
+      .filter((entries) => entries[1] !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+
+    requestTransactionList(cleanedParams);
 
     // const { requestTransactionList, setFilter } = this.props;
     // const { setFilter, history } = this.props;
-    // const cleanedParams = Object.entries(params)
-    //   .filter((entries) => entries[1] !== '')
-    //   .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
-    // requestTransactionList(cleanedParams);
+
     // setFilter(cleanedParams);
     // const querystring = Object.entries(params)
     //   .filter((entries) => !!entries[1])
@@ -85,8 +82,7 @@ class TransactionSearchFilter extends PureComponent {
   }
 }
 
-// TransactionSearchFilter.propTypes = { setFilter: PropTypes.func };
-TransactionSearchFilter.propTypes = { setTransactionList: PropTypes.func };
+TransactionSearchFilter.propTypes = { requestTransactionList: PropTypes.func };
 
 export default TransactionSearchFilter;
 // export default withRouter(TransactionSearchFilter);
