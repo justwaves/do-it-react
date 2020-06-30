@@ -1,8 +1,8 @@
-export const LARGE_AND_ABOVE = "largeAndAbove";
+export const LARGE_AND_ABOVE = 'largeAndAbove';
 const BREAKPOINT_NAMES = {
-  LARGE: "large",
-  MEDIUM: "medium",
-  SMALL: "small",
+  LARGE: 'large',
+  MEDIUM: 'medium',
+  SMALL: 'small',
 };
 
 const breakpoints = {
@@ -18,24 +18,24 @@ const responsive = {
   [BREAKPOINT_NAMES.SMALL]: `@media (max-width: ${
     breakpoints[BREAKPOINT_NAMES.MEDIUM] - 1
   }px)`,
-  print: "@media print",
+  print: '@media print',
 };
 export const unit = 4;
 
 export default {
   // 색상
   color: {
-    primary: "#2196F3", // 주 색상
-    primaryDark: "#1976D2",
-    secondary: "#009688", // 부 색상
-    secondaryDark: "#00796b",
-    white: "#FFFFFF",
-    gray: "#9e9e9e",
-    grayLight: "#eeeeee",
-    grayDark: "#616161",
-    border: "rgba(0, 0, 0, .15)",
-    default: "#333333", // 기본 문자 색상
-    error: "#e51c23", // 오류 색상
+    primary: '#2196F3', // 주 색상
+    primaryDark: '#1976D2',
+    secondary: '#009688', // 부 색상
+    secondaryDark: '#00796b',
+    white: '#FFFFFF',
+    gray: '#9e9e9e',
+    grayLight: '#eeeeee',
+    grayDark: '#616161',
+    border: 'rgba(0, 0, 0, .15)',
+    default: '#333333', // 기본 문자 색상
+    error: '#e51c23', // 오류 색상
   },
   // 폰트 사이즈
   size: {
@@ -56,19 +56,19 @@ export default {
     xs: 1.4,
   },
   fontWeight: {
-    bold: "bold",
-    normal: "normal",
+    bold: 'bold',
+    normal: 'normal',
     light: 300,
   },
   depth: {
     level1: {
-      boxShadow: "0 2px 2px 0 rgba(0, 0, 0, 0.14)",
+      boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.14)',
     },
     level2: {
-      boxShadow: "0 4px 5px 0 rgba(0, 0, 0, 0.14)",
+      boxShadow: '0 4px 5px 0 rgba(0, 0, 0, 0.14)',
     },
     level3: {
-      boxShadow: "0 8px 17px 12px rgba(0, 0, 0, 0.14)",
+      boxShadow: '0 8px 17px 12px rgba(0, 0, 0, 0.14)',
     },
   },
   // 길이 단위

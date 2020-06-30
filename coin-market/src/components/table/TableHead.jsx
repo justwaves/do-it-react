@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class TableHead extends PureComponent {
   render() {
@@ -8,7 +8,7 @@ class TableHead extends PureComponent {
     return (
       <thead>
         {React.Children.map(children, (child) =>
-          React.cloneElement(child, { isHeader: true })
+          React.cloneElement(child, { isHeader: true }),
         )}
       </thead>
     );

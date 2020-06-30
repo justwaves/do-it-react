@@ -1,13 +1,13 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import Spacing from "components/common/Spacing";
-import { css } from "styles/withStyles";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import Spacing from 'components/common/Spacing';
+import { css } from 'styles/withStyles';
 
 function RedBox({ children }) {
   return (
     <div
       {...css({
-        border: "1px red solid",
+        border: '1px red solid',
         minHeight: 100,
       })}
     >
@@ -16,7 +16,7 @@ function RedBox({ children }) {
   );
 }
 
-storiesOf("InlineList", module).addWithJSX("기본 설정", () => (
+storiesOf('InlineList', module).addWithJSX('기본 설정', () => (
   <RedBox>
     <Spacing top={1}>
       <RedBox>top: 1</RedBox>

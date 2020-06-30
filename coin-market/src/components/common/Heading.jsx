@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css } from 'styles/withStyles';
 
-const headingTags = ["h1", "h2", "h3", "h4", "h5", "h6"];
+const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 class Heading extends PureComponent {
   render() {
@@ -15,7 +15,7 @@ class Heading extends PureComponent {
         {...css(
           styles.default,
           styles[`level${level}`],
-          inverse && styles.inverse
+          inverse && styles.inverse,
         )}
       >
         {children}

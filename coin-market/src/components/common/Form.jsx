@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const { Provider, Consumer } = React.createContext({});
 
@@ -41,7 +41,7 @@ class FormProvider extends React.PureComponent {
           [name]: updatedValue,
         },
       }),
-      () => this.validate(this.state.values)
+      () => this.validate(this.state.values),
     );
   }
 

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { css } from "styles/withStyles";
-import { unit } from "styles/theme";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'styles/withStyles';
+import { unit } from 'styles/theme';
 
 class Spacing extends Component {
   render() {

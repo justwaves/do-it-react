@@ -1,12 +1,12 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import Card from "components/common/Card";
-import Spacing from "components/common/Spacing";
-import Text from "components/common/Text";
+import Card from 'components/common/Card';
+import Spacing from 'components/common/Spacing';
+import Text from 'components/common/Text';
 
-storiesOf("Card", module)
-  .addWithJSX("Card 예제", () => (
+storiesOf('Card', module)
+  .addWithJSX('Card 예제', () => (
     <Spacing vertical={2} horizontal={2}>
       <Card>
         <Text xlarge>제목</Text>
@@ -15,7 +15,7 @@ storiesOf("Card", module)
       </Card>
     </Spacing>
   ))
-  .addWithJSX("Card Spacing 예제", () => (
+  .addWithJSX('Card Spacing 예제', () => (
     <Spacing vertical={2} horizontal={2}>
       <Card vertical={2} horizontal={2}>
         <Text xlarge>제목</Text>

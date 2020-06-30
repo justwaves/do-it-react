@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css, withStylesPropTypes } from "styles/withStyles";
-import Spacing from "components/common/Spacing";
-import Text from "components/common/Text";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
+import Spacing from 'components/common/Spacing';
+import Text from 'components/common/Text';
 
 class Toast extends PureComponent {
   render() {
@@ -30,7 +30,7 @@ Toast.propTypes = {
 
 export default withStyles(({ depth, unit, color }) => ({
   overlay: {
-    position: "fixed",
+    position: 'fixed',
     bottom: 0,
     right: 0,
     margin: unit * 4,

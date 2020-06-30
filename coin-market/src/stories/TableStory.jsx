@@ -1,13 +1,13 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
-import Table from "components/table/Table";
-import TableHead from "components/table/TableHead";
-import TableBody from "components/table/TableBody";
-import TableRow from "components/table/TableRow";
-import TableCell from "components/table/TableCell";
+import Table from 'components/table/Table';
+import TableHead from 'components/table/TableHead';
+import TableBody from 'components/table/TableBody';
+import TableRow from 'components/table/TableRow';
+import TableCell from 'components/table/TableCell';
 
-storiesOf("Table", module).addWithJSX("Table 예제", () => (
+storiesOf('Table', module).addWithJSX('Table 예제', () => (
   <Table>
     <TableHead>
       <TableRow>

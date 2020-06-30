@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css } from 'styles/withStyles';
 
 class Text extends PureComponent {
   render() {
@@ -29,7 +29,7 @@ class Text extends PureComponent {
           primary && styles.primary,
           bold && styles.bold,
           light && styles.light,
-          inverse && styles.inverse
+          inverse && styles.inverse,
         )}
       >
         {children}

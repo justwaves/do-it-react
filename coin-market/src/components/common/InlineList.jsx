@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css, withStylesPropTypes } from "styles/withStyles";
-import { unit } from "styles/theme";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
+import { unit } from 'styles/theme';
 
 class InlineList extends PureComponent {
   render() {
@@ -16,10 +16,10 @@ class InlineList extends PureComponent {
       <div
         {...css(
           styles.wrapper,
-          align === "center" && styles.alignCenter,
-          align === "right" && styles.alignRight,
-          verticalAlign === "top" && styles.verticalAlignTop,
-          verticalAlign === "bottom" && styles.verticalAlignBottom
+          align === 'center' && styles.alignCenter,
+          align === 'right' && styles.alignRight,
+          verticalAlign === 'top' && styles.verticalAlignTop,
+          verticalAlign === 'bottom' && styles.verticalAlignBottom,
         )}
       >
         {React.Children.map(children, (child) => (
@@ -32,8 +32,8 @@ class InlineList extends PureComponent {
 
 InlineList.propTypes = {
   ...withStylesPropTypes,
-  align: PropTypes.oneOf(["left", "center", "right"]),
-  verticalAlign: PropTypes.oneOf(["top", "middle", "bottom"]),
+  align: PropTypes.oneOf(['left', 'center', 'right']),
+  verticalAlign: PropTypes.oneOf(['top', 'middle', 'bottom']),
   spacingBetween: PropTypes.number,
   children: PropTypes.node,
 };
@@ -44,22 +44,22 @@ InlineList.defaultProps = {
 
 export default withStyles(() => ({
   wrapper: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   alignCenter: {
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   alignRight: {
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   verticalAlignTop: {
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
   },
   verticalAlignBottom: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
   },
 }))(InlineList);

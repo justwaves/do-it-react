@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css } from 'styles/withStyles';
 
 class Button extends PureComponent {
   render() {
@@ -27,7 +27,7 @@ class Button extends PureComponent {
           xlarge && styles.xlarge,
           secondary && styles.secondary,
           primary && styles.primary,
-          disabled && styles.disabled
+          disabled && styles.disabled,
         )}
         disabled={disabled}
         onClick={onPress}
@@ -66,7 +66,7 @@ export default withStyles(({ color, size, unit, depth, fontWeight }) => ({
   default: {
     ...depth.level1,
     border: 1,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderColor: color.default,
     borderRadius: unit,
     color: color.default,
@@ -76,12 +76,12 @@ export default withStyles(({ color, size, unit, depth, fontWeight }) => ({
     paddingLeft: unit * 4,
     paddingRight: unit * 4,
     outline: 0,
-    cursor: "pointer",
-    ":hover": {
+    cursor: 'pointer',
+    ':hover': {
       backgroundColor: color.grayLight,
     },
-    ":focus": {
-      boxShadow: "0 0 0px 2px rgba(0, 0, 0, 0.3)",
+    ':focus': {
+      boxShadow: '0 0 0px 2px rgba(0, 0, 0, 0.3)',
     },
   },
   xlarge: {
@@ -104,7 +104,7 @@ export default withStyles(({ color, size, unit, depth, fontWeight }) => ({
     borderColor: color.primary,
     color: color.white,
     backgroundColor: color.primary,
-    ":hover": {
+    ':hover': {
       backgroundColor: color.primaryDark,
     },
   },
@@ -115,10 +115,10 @@ export default withStyles(({ color, size, unit, depth, fontWeight }) => ({
   disabled: {
     borderColor: color.grayDark,
     color: color.grayLight,
-    cursor: "default",
+    cursor: 'default',
     opacity: 0.5,
     backgroundColor: color.gray,
-    ":hover": {
+    ':hover': {
       backgroundColor: color.gray,
     },
   },

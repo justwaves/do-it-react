@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css, withStylesPropTypes } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
 
 class Input extends PureComponent {
   constructor(props) {
@@ -51,7 +51,7 @@ class Input extends PureComponent {
             xsmall && styles.xsmall,
             small && styles.small,
             large && styles.large,
-            xlarge && styles.xlarge
+            xlarge && styles.xlarge,
           )}
           id={`input_${name}`}
           ref={this.setRef}
@@ -66,7 +66,7 @@ class Input extends PureComponent {
 
 Input.propTypes = {
   ...withStylesPropTypes,
-  type: PropTypes.oneOf(["text", "number", "price"]),
+  type: PropTypes.oneOf(['text', 'number', 'price']),
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   errorMessage: PropTypes.string,
@@ -84,14 +84,14 @@ export default withStyles(({ depth, unit, color, size, lineHeight }) => ({
   wrapper: {
     border: 0,
     padding: 0,
-    position: "relative",
+    position: 'relative',
   },
   label: {
-    display: "block",
+    display: 'block',
     fontSize: size.xs,
     top: 2,
     left: unit * 2,
-    cursor: "pointer",
+    cursor: 'pointer',
   },
   input: {
     marginTop: 2,
@@ -100,11 +100,11 @@ export default withStyles(({ depth, unit, color, size, lineHeight }) => ({
     padding: unit * 1.5,
     border: 1,
     borderColor: color.primary,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderRadius: 4,
     outline: 0,
-    ":focus": {
-      boxShadow: "0 0 0px 2px rgba(0, 0, 0, 0.3)",
+    ':focus': {
+      boxShadow: '0 0 0px 2px rgba(0, 0, 0, 0.3)',
     },
   },
   xlarge: {

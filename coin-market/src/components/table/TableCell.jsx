@@ -1,19 +1,19 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css, withStylesPropTypes } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
 
 class TableCell extends PureComponent {
   render() {
     const { align, baseline, styles, children, isHeader } = this.props;
-    const Tag = isHeader ? "th" : "td";
+    const Tag = isHeader ? 'th' : 'td';
     return (
       <Tag
         {...css(
           styles.cell,
           isHeader && styles.header,
           !isHeader && baseline && styles.baseline,
-          align === "center" && styles.alignCenter,
-          align === "right" && styles.alignRight
+          align === 'center' && styles.alignCenter,
+          align === 'right' && styles.alignRight,
         )}
       >
         {children}
@@ -24,7 +24,7 @@ class TableCell extends PureComponent {
 
 TableCell.propTypes = {
   ...withStylesPropTypes,
-  align: PropTypes.oneOf(["left", "center", "right"]),
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   baseline: PropTypes.bool,
   children: PropTypes.node,
   isHeader: PropTypes.bool,
@@ -42,7 +42,7 @@ export default withStyles(({ color, unit }) => ({
     paddingRight: unit * 8,
     paddingLeft: unit * 8,
     backgroundColor: color.white,
-    textAlign: "left",
+    textAlign: 'left',
   },
   header: {
     backgroundColor: color.primary,
@@ -52,9 +52,9 @@ export default withStyles(({ color, unit }) => ({
     borderBottom: `1px solid ${color.border}`,
   },
   alignCenter: {
-    textAlign: "center",
+    textAlign: 'center',
   },
   alignRight: {
-    textAlign: "right",
+    textAlign: 'right',
   },
 }))(TableCell);

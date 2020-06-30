@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
-import Modal from "./index";
+import React, { PureComponent } from 'react';
+import Modal from './index';
 
-import { Provider } from "./context";
+import { Provider } from './context';
 
 export default function createModalProvider(ContentMap = {}) {
   return class ModalProvider extends PureComponent {

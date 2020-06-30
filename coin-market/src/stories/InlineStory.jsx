@@ -1,13 +1,13 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import InlineList from "components/common/InlineList";
-import { css } from "styles/withStyles";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import InlineList from 'components/common/InlineList';
+import { css } from 'styles/withStyles';
 
 function RedBox({ children }) {
   return (
     <div
       {...css({
-        backgroundColor: "red",
+        backgroundColor: 'red',
         padding: 30,
         height: Math.random() * 100,
       })}
@@ -17,36 +17,36 @@ function RedBox({ children }) {
   );
 }
 
-storiesOf("InlineList", module)
-  .addWithJSX("기본 설정", () => (
+storiesOf('InlineList', module)
+  .addWithJSX('기본 설정', () => (
     <InlineList>
       <RedBox>1</RedBox>
       <RedBox>2</RedBox>
       <RedBox>3</RedBox>
     </InlineList>
   ))
-  .addWithJSX("align=center", () => (
+  .addWithJSX('align=center', () => (
     <InlineList align="center">
       <RedBox>1</RedBox>
       <RedBox>2</RedBox>
       <RedBox>3</RedBox>
     </InlineList>
   ))
-  .addWithJSX("align=right", () => (
+  .addWithJSX('align=right', () => (
     <InlineList align="right">
       <RedBox>1</RedBox>
       <RedBox>2</RedBox>
       <RedBox>3</RedBox>
     </InlineList>
   ))
-  .addWithJSX("align=top", () => (
+  .addWithJSX('align=top', () => (
     <InlineList align="top">
       <RedBox>1</RedBox>
       <RedBox>2</RedBox>
       <RedBox>3</RedBox>
     </InlineList>
   ))
-  .addWithJSX("align=bottom", () => (
+  .addWithJSX('align=bottom', () => (
     <InlineList align="bottom">
       <RedBox>1</RedBox>
       <RedBox>2</RedBox>

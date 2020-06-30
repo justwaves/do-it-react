@@ -1,9 +1,9 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, css, withStylesPropTypes } from "styles/withStyles";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
 import Spacing, {
   propTypes as spacingPropTypes,
-} from "components/common/Spacing";
+} from 'components/common/Spacing';
 
 class Card extends PureComponent {
   render() {
@@ -27,8 +27,8 @@ export default withStyles(({ depth, unit, color }) => ({
     ...depth.level1,
     borderRadius: unit,
     backgroundColor: color.white,
-    display: "flex",
-    overflow: "hidden",
+    display: 'flex',
+    overflow: 'hidden',
     marginBottom: unit * 4,
   },
 }))(Card);

@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 class TableRow extends PureComponent {
   render() {
@@ -8,7 +8,7 @@ class TableRow extends PureComponent {
     return (
       <tr>
         {React.Children.map(children, (child) =>
-          React.cloneElement(child, { baseline, isHeader })
+          React.cloneElement(child, { baseline, isHeader }),
         )}
       </tr>
     );
