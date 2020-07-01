@@ -1,15 +1,12 @@
-import {
-  TRADE_COMPLETE,
-  requestTransactionList,
-} from 'redux/actions/transactionActions';
-import { showMessage } from 'redux/actions/notificationActions';
+import { requestTransactionList } from 'store/modules/transactions';
+import { showMessage } from 'store/modules/notification';
 
 export default (store) => (nextRunner) => (action) => {
   const { type } = action;
   const result = nextRunner(action);
-  if (type === TRADE_COMPLETE) {
+  if (type === 'transactions/tradeComplete') {
     const message = '거래 목록을 최신 정보로 업데이트하였습니다.';
-    store.dispatch(showMessage(message));
+    store.dispatch(showMessage({ message }));
     store.dispatch(requestTransactionList());
   }
   return result;

@@ -1,12 +1,12 @@
 import React from 'react';
-import TransactionLIstContainer from 'containers/main/TransactionLIstContainer';
+import TransactionListContainer from 'containers/main/TransactionListContainer';
 import CoinOverview from './CoinOverview';
 
 const MainPage = () => {
   return (
     <>
       <CoinOverview />
-      <TransactionLIstContainer />
+      <TransactionListContainer />
     </>
   );
 };

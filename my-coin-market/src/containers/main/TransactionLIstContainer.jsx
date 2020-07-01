@@ -1,36 +1,29 @@
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import TransactionList from 'components/main/TransactionList';
-import { requestTransactionList } from 'redux/actions/transactionActions';
-// import { requestTransactionList } from 'redux/actions/transactionPackActions';
-// import {
-//   transactionListSelector,
-//   transactionListLoadingStateSelector,
-// } from '../../selectors/transactionSelectors';
+import { requestTransactionList } from 'store/modules/transactions';
 
-const mapStateToProps = (state) => {
-  const { ids, entities, loading } = state.transactions;
+const TransactionListContainer = () => {
+  const { ids, entities, loading } = useSelector(({ transactions }) => ({
+    ids: transactions.ids,
+    entities: transactions.entities,
+    loading: transactions.loading,
+  }));
+  const dispatch = useDispatch();
+
   const transactions = ids.map((id) => entities[id]);
-  return { transactions, loading };
-  // const { ids, entities, loadingState, pages, pagination } = state.transactions;
-  // const transactions = ids.map(id => entities[id]);
-  // const { pagination } = state.transactions;
-  // const transactions = transactionListSelector(state);
-  // const loading = transactionListLoadingStateSelector(state);
-  // const { number = 1 } = pagination;
-  // return { transactions, loading: loading && number === 1 };
+
+  const requestTxList = useCallback(() => {
+    dispatch(requestTransactionList());
+  }, [dispatch]);
+
+  return (
+    <TransactionList
+      transactions={transactions}
+      loading={loading}
+      requestTransactionList={requestTxList}
+    />
+  );
 };
 
-// const mapStateToProps = state => ({
-//   transactions: transactionListSelector(state),
-//   loading: transactionListLoadingStateSelector(state),
-// });
-
-// const mapDispatchToProps = {
-//   requestTransactionList,
-// };
-
-const mapDispatchToProps = {
-  requestTransactionList,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionList);
+export default TransactionListContainer;

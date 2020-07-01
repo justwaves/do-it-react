@@ -85,7 +85,7 @@ Input.defaultProps = {
   autoFocus: false,
 };
 
-export default withStyles(({ depth, unit, color, size, lineHeight }) => ({
+export default withStyles(({ unit, color, size, lineHeight }) => ({
   wrapper: {
     border: 0,
     padding: 0,

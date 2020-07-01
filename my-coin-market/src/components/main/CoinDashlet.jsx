@@ -21,13 +21,13 @@ const CoinDashlet = React.memo(({ name, priceLabel }) => {
             <Button
               primary
               small
-              onPress={() =>
+              onPress={() => {
                 openModal(TRADE_COIN_MODAL, {
                   type: 'buy',
                   name,
                   price: priceLabel,
-                })
-              }
+                });
+              }}
             >
               매도
             </Button>
