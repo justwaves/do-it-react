@@ -2,38 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, css } from 'styles/withStyles';
 
-const Text = ({
-  children,
-  bold,
-  light,
-  styles,
-  large,
-  xlarge,
-  small,
-  xsmall,
-  primary,
-  secondary,
-  inverse,
-}) => {
-  return (
-    <span
-      {...css(
-        styles.default,
-        xsmall && styles.xsmall,
-        small && styles.small,
-        large && styles.large,
-        xlarge && styles.xlarge,
-        secondary && styles.secondary,
-        primary && styles.primary,
-        bold && styles.bold,
-        light && styles.light,
-        inverse && styles.inverse,
-      )}
-    >
-      {children}
-    </span>
-  );
-};
+const Text = React.memo(
+  ({
+    children,
+    bold,
+    light,
+    styles,
+    large,
+    xlarge,
+    small,
+    xsmall,
+    primary,
+    secondary,
+    inverse,
+  }) => {
+    return (
+      <span
+        {...css(
+          styles.default,
+          xsmall && styles.xsmall,
+          small && styles.small,
+          large && styles.large,
+          xlarge && styles.xlarge,
+          secondary && styles.secondary,
+          primary && styles.primary,
+          bold && styles.bold,
+          light && styles.light,
+          inverse && styles.inverse,
+        )}
+      >
+        {children}
+      </span>
+    );
+  },
+);
 
 Text.propTypes = {
   children: PropTypes.node.isRequired,

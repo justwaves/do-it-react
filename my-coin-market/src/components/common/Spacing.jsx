@@ -39,4 +39,4 @@ export const propTypes = {
 
 Spacing.propTypes = propTypes;
 
-export default Spacing;
+export default React.memo(Spacing);

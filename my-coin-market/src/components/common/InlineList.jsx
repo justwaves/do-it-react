@@ -3,29 +3,25 @@ import PropTypes from 'prop-types';
 import { withStyles, css, withStylesPropTypes } from 'styles/withStyles';
 import { unit } from 'styles/theme';
 
-const InlineList = ({
-  align,
-  children,
-  styles,
-  spacingBetween,
-  verticalAlign,
-}) => {
-  return (
-    <div
-      {...css(
-        styles.wrapper,
-        align === 'center' && styles.alignCenter,
-        align === 'right' && styles.alignRight,
-        verticalAlign === 'top' && styles.verticalAlignTop,
-        verticalAlign === 'bottom' && styles.verticalAlignBottom,
-      )}
-    >
-      {React.Children.map(children, (child) => (
-        <div {...css({ marginRight: spacingBetween * unit })}>{child}</div>
-      ))}
-    </div>
-  );
-};
+const InlineList = React.memo(
+  ({ align, children, styles, spacingBetween, verticalAlign }) => {
+    return (
+      <div
+        {...css(
+          styles.wrapper,
+          align === 'center' && styles.alignCenter,
+          align === 'right' && styles.alignRight,
+          verticalAlign === 'top' && styles.verticalAlignTop,
+          verticalAlign === 'bottom' && styles.verticalAlignBottom,
+        )}
+      >
+        {React.Children.map(children, (child) => (
+          <div {...css({ marginRight: spacingBetween * unit })}>{child}</div>
+        ))}
+      </div>
+    );
+  },
+);
 
 InlineList.propTypes = {
   ...withStylesPropTypes,
