@@ -1,20 +1,24 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import Modal from 'components/common/modal';
+import { Provider } from 'react-redux';
+import AppLayout from 'components/layouts/AppLayout';
+import MainPage from 'components/main/MainPage';
+import configureStore from 'redux/configureStore';
+import NotificationContainer from 'containers/NotificationContainer';
+import ModalProvider from './ModalProvider';
 
-const App = () => (
-  <>
-    <Helmet>
-      <title>Coin Market</title>
-    </Helmet>
-    <Switch>
-      <Route path={['/']} component={HomePage} />
-      <Redirect from="*" to="/" />
-    </Switch>
-    <Modal />
-  </>
-);
+const App = () => {
+  const store = configureStore();
 
-export default App;
+  return (
+    <Provider store={store}>
+      <ModalProvider>
+        <AppLayout>
+          <MainPage />
+          <NotificationContainer />
+        </AppLayout>
+      </ModalProvider>
+    </Provider>
+  );
+};
+
+export default React.memo(App);
