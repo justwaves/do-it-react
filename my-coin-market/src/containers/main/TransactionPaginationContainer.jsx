@@ -5,15 +5,18 @@ import { requestTransactionList } from 'store/modules/transactions';
 
 const TransactionPaginationContainer = () => {
   const dispatch = useDispatch();
-  const { pagination, loading, ids } = useSelector(({ transactions }) => ({
-    pagination: transactions.pagination,
-    loading: transactions.loading,
-    ids: transactions.ids,
-  }));
+  const { pagination, loading, ids, params } = useSelector(
+    ({ transactions, searchFilter }) => ({
+      pagination: transactions.pagination,
+      loading: transactions.loading,
+      ids: transactions.ids,
+      params: searchFilter.params,
+    }),
+  );
 
   const requestTxList = useCallback(
-    (params, _page) => {
-      dispatch(requestTransactionList(params, _page));
+    (_params, _page) => {
+      dispatch(requestTransactionList(_params, _page));
     },
     [dispatch],
   );
@@ -26,6 +29,7 @@ const TransactionPaginationContainer = () => {
       loading={loading}
       requestTransactionList={requestTxList}
       hasNext={ids.length === size}
+      searchParams={params}
     />
   );
 };

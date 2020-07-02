@@ -5,17 +5,17 @@ import InlineList from 'components/common/InlineList';
 
 const TransactionPagination = ({
   requestTransactionList,
-  // searchParams,
+  searchParams,
   pageNumber,
   loading,
   hasNext,
 }) => {
   const handlePrevPress = () => {
-    requestTransactionList(null, pageNumber - 1);
+    requestTransactionList(searchParams, pageNumber - 1);
   };
 
   const handleNextPress = () => {
-    requestTransactionList(null, pageNumber + 1);
+    requestTransactionList(searchParams, pageNumber + 1);
   };
 
   const prevDisabled = loading || pageNumber <= 1;

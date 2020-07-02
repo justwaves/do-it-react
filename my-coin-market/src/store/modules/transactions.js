@@ -41,10 +41,8 @@ export const transactionsSlice = createSlice({
       state.hasError = false;
     },
     fetchTransactionListSuccess(state, action) {
-      console.log(action.payload);
       const { data } = action.payload;
       const { _page, _limit } = action.payload.config.params;
-      console.log(_page, _limit);
       state.ids = data.map((entity) => entity.id);
       state.entities = data.reduce(
         (finalEntities, entity) => ({
@@ -85,7 +83,6 @@ const PAGE_SIZE = 10;
 export const requestTransactionList = (params, _page = 1) => async (
   dispatch,
 ) => {
-  console.log(_page);
   try {
     dispatch(fetchTransactionListStart());
     const data = await Api.get('/transactions', {
