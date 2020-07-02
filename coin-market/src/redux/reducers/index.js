@@ -1,6 +1,6 @@
 import notification from './notificationReducer';
 // import createReducers from '../../11/api-redux-pack/createReducers';
-// import searchFilter from './searchFilterReducer';
+import searchFilter from './searchFilterReducer';
 // import router from './routerReducer';
 import transactions from './transactionsReducer';
 
@@ -9,7 +9,7 @@ import transactions from './transactionsReducer';
 export default {
   // ...apiReducers,
   notification,
-  // searchFilter,
+  searchFilter,
   // router,
   transactions,
 };

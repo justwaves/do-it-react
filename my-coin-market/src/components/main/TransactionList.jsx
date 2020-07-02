@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import Heading from 'components/common/Heading';
 import Card from 'components/common/Card';
 import TransactionSearchFilterContainer from 'containers/main/TransactionSearchFilterContainer';
+import TransactionPaginationContainer from 'containers/main/TransactionPaginationContainer';
 import TransactionTable from './TransactionTable';
-// import TransactionPaginationContainer from '../../containers/main/TransactionPaginationContainer';
 
 const TransactionList = ({ requestTransactionList, transactions, loading }) => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const TransactionList = ({ requestTransactionList, transactions, loading }) => {
       <Card>
         <TransactionTable transactions={transactions} isLoading={loading} />
       </Card>
-      {/* <TransactionPagination /> */}
+      <TransactionPaginationContainer />
     </div>
   );
 };

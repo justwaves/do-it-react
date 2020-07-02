@@ -1,7 +1,6 @@
 /* eslint-disable no-use-before-define */
 import { createSlice } from '@reduxjs/toolkit';
 import Api from 'Api';
-import { showMessage } from 'store/modules/notification';
 
 export const transactionsSlice = createSlice({
   name: 'transactions',
@@ -10,6 +9,7 @@ export const transactionsSlice = createSlice({
     entities: {},
     loading: false,
     hasError: false,
+    pagination: {},
   },
   reducers: {
     setError: (state, { payload: { errorMessage } }) => {
@@ -36,46 +36,81 @@ export const transactionsSlice = createSlice({
       state.hasError = false;
     },
     tradeComplete: () => {},
+    fetchTransactionListStart(state) {
+      state.loading = true;
+      state.hasError = false;
+    },
+    fetchTransactionListSuccess(state, action) {
+      console.log(action.payload);
+      const { data } = action.payload;
+      const { _page, _limit } = action.payload.config.params;
+      console.log(_page, _limit);
+      state.ids = data.map((entity) => entity.id);
+      state.entities = data.reduce(
+        (finalEntities, entity) => ({
+          ...finalEntities,
+          [entity.id]: entity,
+        }),
+        {},
+      );
+      state.loading = false;
+      state.hasError = false;
+      state.pagination = {
+        number: _page,
+        size: _limit,
+      };
+    },
+    fetchTransactionListFailure(state, action) {
+      const { errorMessage } = action.payload;
+      state.loading = false;
+      state.hasError = true;
+      state.errorMessage = errorMessage;
+    },
   },
 });
-
-export function requestTransactionList(params) {
-  return (dispatch) => {
-    dispatch(loadingTransactionList());
-    Api.get('/transactions', { params }).then(
-      ({ data }) => dispatch(setTransactionList(data)),
-      (error) => {
-        dispatch(setError(error.response.data.errorMessage));
-        dispatch(
-          showMessage({
-            message: error.response.data.errorMessage,
-            warning: true,
-          }),
-        );
-      },
-    );
-  };
-}
-
-export function createTransaction(data, onComplete) {
-  console.log(data);
-  return (dispatch) =>
-    Api.post('/transactions', data).then(
-      () => {
-        dispatch(tradeComplete());
-        onComplete();
-      },
-      (error) =>
-        dispatch(
-          transactionsSlice.reducer.setError(error.response.data.errorMessage),
-        ),
-    );
-}
 
 export const {
   setError,
   loadingTransactionList,
   setTransactionList,
   tradeComplete,
+  fetchTransactionListStart,
+  fetchTransactionListSuccess,
+  fetchTransactionListFailure,
 } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
+
+const PAGE_SIZE = 10;
+
+export const requestTransactionList = (params, _page = 1) => async (
+  dispatch,
+) => {
+  console.log(_page);
+  try {
+    dispatch(fetchTransactionListStart());
+    const data = await Api.get('/transactions', {
+      params: {
+        ...params,
+        _page,
+        _limit: PAGE_SIZE,
+      },
+    });
+
+    dispatch(fetchTransactionListSuccess(data));
+  } catch (error) {
+    console.log(error.toString());
+    const errorMessage = error.toString();
+    dispatch(fetchTransactionListFailure(errorMessage));
+  }
+};
+
+export const createTransaction = (data, onComplete) => async (dispatch) => {
+  try {
+    await Api.post('/transactions', data);
+    dispatch(tradeComplete());
+    onComplete();
+  } catch (error) {
+    const errorMessage = error.toString();
+    dispatch(setError(errorMessage));
+  }
+};

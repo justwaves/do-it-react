@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from 'redux/reducers';
 // import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
 import thunk from 'redux-thunk';
-// import { middleware as reduxPackMiddleware } from 'redux-pack';
+import { middleware as reduxPackMiddleware } from 'redux-pack';
 // import searchFilterEffects from '../middlewares/searchFilterEffects';
 // import routerEffects from '../middlewares/routerEffects';
 import notificationEffects from 'middlewares/notificationEffects';
@@ -14,7 +14,12 @@ export default (initStates) =>
     combineReducers(reducers),
     initStates,
     composeWithDevTools(
-      applyMiddleware(thunk, notificationEffects, transactionEffects),
+      applyMiddleware(
+        thunk,
+        reduxPackMiddleware,
+        notificationEffects,
+        transactionEffects,
+      ),
     ),
   );
 

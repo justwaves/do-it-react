@@ -20,49 +20,15 @@
     },
     {
       "currentPrice": "4,216,000원",
-      "amount": "1",
+      "amount": "11",
       "name": "비트코인",
       "id": 3
     },
     {
-      "currentPrice": "4,216,000원",
+      "currentPrice": "216,000원",
       "amount": "1",
-      "name": "비트코인",
+      "name": "이더리움",
       "id": 4
-    },
-    {
-      "currentPrice": "1",
-      "amount": "1",
-      "id": 5
-    },
-    {
-      "currentPrice": "1",
-      "amount": "1",
-      "id": 6
-    },
-    {
-      "currentPrice": "4,216,000원",
-      "amount": "1",
-      "name": "비트코인",
-      "id": 7
-    },
-    {
-      "currentPrice": "4,216,000원",
-      "amount": "1",
-      "name": "비트코인",
-      "id": 8
-    },
-    {
-      "currentPrice": "216,000원",
-      "amount": "1",
-      "name": "이더리움",
-      "id": 9
-    },
-    {
-      "currentPrice": "216,000원",
-      "amount": "1",
-      "name": "이더리움",
-      "id": 10
     }
   ]
 }

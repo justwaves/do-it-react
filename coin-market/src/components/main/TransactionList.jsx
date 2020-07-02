@@ -4,8 +4,8 @@ import Heading from 'components/common/Heading';
 import Card from 'components/common/Card';
 
 import TransactionSearchFilterContainer from 'containers/main/TransactionSearchFilterContainer';
+import TransactionPaginationContainer from 'containers/main/TransactionPaginationContainer';
 import TransactionTable from './TransactionTable';
-// import TransactionPaginationContainer from '../../containers/main/TransactionPaginationContainer';
 
 class TransactionList extends PureComponent {
   componentDidMount() {
@@ -24,7 +24,7 @@ class TransactionList extends PureComponent {
         <Card>
           <TransactionTable transactions={transactions} isLoading={loading} />
         </Card>
-        {/* <TransactionPagination /> */}
+        <TransactionPaginationContainer />
       </div>
     );
   }
