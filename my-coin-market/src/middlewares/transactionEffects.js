@@ -9,9 +9,5 @@ export default (store) => (nextRunner) => (action) => {
     store.dispatch(showMessage({ message }));
     store.dispatch(requestTransactionList());
   }
-  // if (type === 'transactions/fetchTransactionListSuccess') {
-  //   const message = '거래 목록을 최신 정보로 업데이트하였습니다.';
-  //   store.dispatch(showMessage({ message }));
-  // }
   return result;
 };

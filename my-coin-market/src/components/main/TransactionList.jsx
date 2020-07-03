@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Heading from 'components/common/Heading';
 import Card from 'components/common/Card';
 import TransactionSearchFilterContainer from 'containers/main/TransactionSearchFilterContainer';
 import TransactionPaginationContainer from 'containers/main/TransactionPaginationContainer';
 import TransactionTable from './TransactionTable';
 
-const TransactionList = ({ requestTransactionList, transactions, loading }) => {
-  useEffect(() => {
-    requestTransactionList();
-  }, [requestTransactionList]);
-
+const TransactionList = ({ transactions, loading }) => {
   return (
     <div>
       <Heading level={3}>거래 현황</Heading>
@@ -26,7 +22,6 @@ const TransactionList = ({ requestTransactionList, transactions, loading }) => {
 
 TransactionList.defaultProps = {
   transactions: [],
-  requestTransactionList: () => {},
 };
 
 export default React.memo(TransactionList);

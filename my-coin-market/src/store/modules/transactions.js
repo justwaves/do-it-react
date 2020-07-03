@@ -64,6 +64,10 @@ export const transactionsSlice = createSlice({
       state.hasError = true;
       state.errorMessage = errorMessage;
     },
+    resetList(state) {
+      state.entities = {};
+      state.ids = [];
+    },
   },
 });
 
@@ -75,6 +79,7 @@ export const {
   fetchTransactionListStart,
   fetchTransactionListSuccess,
   fetchTransactionListFailure,
+  resetList,
 } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
 
@@ -95,7 +100,6 @@ export const requestTransactionList = (params, _page = 1) => async (
 
     dispatch(fetchTransactionListSuccess(data));
   } catch (error) {
-    console.log(error.toString());
     const errorMessage = error.toString();
     dispatch(fetchTransactionListFailure(errorMessage));
   }
@@ -110,4 +114,8 @@ export const createTransaction = (data, onComplete) => async (dispatch) => {
     const errorMessage = error.toString();
     dispatch(setError(errorMessage));
   }
+};
+
+export const resetTransactionList = () => (dispatch) => {
+  dispatch(resetList());
 };

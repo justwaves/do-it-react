@@ -1,11 +1,14 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TransactionSearchFilter from 'components/main/TransactionSearchFilter';
 import { requestTransactionList } from 'store/modules/transactions';
 import { setFilter } from 'store/modules/searchFilter';
 
 const TransactionSearchFilterContainer = () => {
   const dispatch = useDispatch();
+  const { initValues } = useSelector(({ searchFilter }) => ({
+    initValues: searchFilter.params,
+  }));
 
   const requestTxList = useCallback(
     (cleanedParams) => {
@@ -26,6 +29,7 @@ const TransactionSearchFilterContainer = () => {
     <TransactionSearchFilter
       requestTransactionList={requestTxList}
       setFilter={onSetFilter}
+      initValues={initValues}
     />
   );
 };

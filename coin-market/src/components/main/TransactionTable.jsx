@@ -57,5 +57,4 @@ TransactionTable.propTypes = {
   ),
 };
 
-// export default withLoading(LoadingMessage)(TransactionTable);
-export default TransactionTable;
+export default withLoading(LoadingMessage)(TransactionTable);
