@@ -14,9 +14,11 @@
     "react-scripts": "3.4.1",
     "react-with-styles": "^4.1.0",
     "react-with-styles-interface-aphrodite": "^6.0.1",
+    "recompose": "^0.30.0",
     "redux": "^4.0.5",
     "redux-pack": "^0.1.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

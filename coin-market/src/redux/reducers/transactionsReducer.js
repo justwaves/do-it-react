@@ -123,14 +123,14 @@ export default (state = initState, action) => {
                 [pageNumber]: ids,
               },
             };
-            const { id } = data;
-            return {
-              ...prevState,
-              ...loadingAndErrorState,
-              id,
-              entities: { ...prevState.entities, [id]: data },
-            };
           }
+          const { id } = data;
+          return {
+            ...prevState,
+            ...loadingAndErrorState,
+            id,
+            entities: { ...prevState.entities, [id]: data },
+          };
         },
         // case SET_ERROR 와 동일
         failure: (prevState) => {

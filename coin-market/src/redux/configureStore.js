@@ -4,10 +4,11 @@ import reducers from 'redux/reducers';
 // import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
 import thunk from 'redux-thunk';
 import { middleware as reduxPackMiddleware } from 'redux-pack';
-// import searchFilterEffects from '../middlewares/searchFilterEffects';
-// import routerEffects from '../middlewares/routerEffects';
+
 import notificationEffects from 'middlewares/notificationEffects';
 import transactionEffects from 'middlewares/transactionEffects';
+import searchFilterEffects from 'middlewares/searchFilterEffects';
+import routerEffects from 'middlewares/routerEffects';
 
 export default (initStates) =>
   createStore(
@@ -19,6 +20,8 @@ export default (initStates) =>
         reduxPackMiddleware,
         notificationEffects,
         transactionEffects,
+        searchFilterEffects,
+        routerEffects,
       ),
     ),
   );

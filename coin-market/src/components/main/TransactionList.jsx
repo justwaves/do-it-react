@@ -8,13 +8,9 @@ import TransactionPaginationContainer from 'containers/main/TransactionPaginatio
 import TransactionTable from './TransactionTable';
 
 class TransactionList extends PureComponent {
-  componentDidMount() {
-    const { requestTransactionList } = this.props;
-    requestTransactionList();
-  }
-
   render() {
     const { transactions, loading } = this.props;
+    console.log(loading);
     return (
       <div>
         <Heading level={3}>거래 현황</Heading>
