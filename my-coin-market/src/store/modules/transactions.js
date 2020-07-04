@@ -83,7 +83,7 @@ export const {
 } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 20;
 
 export const requestTransactionList = (params, _page = 1) => async (
   dispatch,
